@@ -1,0 +1,34 @@
+# Step 2a: AGeNT CReaK Consensus Calling — Configuration
+
+paths:
+  input_bam_dir: "/path/to/bam/data"            # directory containing per-sample subdirectories
+  output_bam_dir: "/path/to/creak_output"        # base output directory — subdirs created per stringency
+  job_scripts_dir: "/path/to/job_scripts"        # directory to store SGE job scripts
+
+bam:
+  input_suffix: "_sorted.bam"                    # output suffix from step 1c
+
+tools:
+  agent_path: "/path/to/AGeNT/agent/agent.sh"   # path to AGeNT agent.sh
+  java_home: "/path/to/jdk-17"                   # Java 17+ required by AGeNT
+
+creak:
+  # Stringency is set via --stringency flag at runtime — do not edit here
+  max_distance: 2
+  sample_size: 100000
+  max_mismatches: 10
+  max_read_length: 20
+  min_mapping_quality: 30
+  memory_efficient: true
+  force_overwrite: true
+  filter_mode: true
+  retain_singletons: true
+
+sge:
+  memory: "10G"
+  cores: 6
+  wall_time: "04:00:00"
+
+submission:
+  batch_size: 5
+  pause_between_batches: 10                       # seconds between batches

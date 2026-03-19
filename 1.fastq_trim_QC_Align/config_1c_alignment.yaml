@@ -1,0 +1,25 @@
+# Step 1c: BWA-MEM Alignment — Configuration
+
+paths:
+  input_fastq_dir: "/path/to/fastq/data"        # directory containing per-sample subdirectories
+  job_scripts_dir: "/path/to/job_scripts"        # directory to store SGE job scripts
+
+fastq:
+  r1_suffix: "_R1_fastp.fastq.gz"               # output suffix from step 1b
+  r2_suffix: "_R2_fastp.fastq.gz"
+
+reference:
+  genome_fasta: "/path/to/genome.fasta"          # must be indexed with BWA (bwa index <fasta>)
+
+tools:
+  bwa_path: "/path/to/bwa"
+  samtools_path: "/path/to/samtools"
+
+sge:
+  memory: "30G"
+  cores: 8
+  wall_time: "04:00:00"
+
+submission:
+  batch_size: 5
+  pause_between_batches: 10                       # seconds between batches

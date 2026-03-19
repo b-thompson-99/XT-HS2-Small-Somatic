@@ -1,0 +1,26 @@
+# Step 2b: Add Read Groups — Configuration
+
+paths:
+  creak_output_dir: "/path/to/creak_output"      # base directory containing MS1/, MS2/, DUPLEX/
+  job_scripts_dir: "/path/to/job_scripts"         # directory to store SGE job scripts
+
+tools:
+  picard: "/path/to/picard"
+  samtools: "/path/to/samtools"
+  java_home: "/path/to/jdk-17"                    # Java 17+ required by Picard
+
+read_group_params:
+  rgid: "1"
+  rglb: "lib1"
+  rgpl: "ILLUMINA"
+  rgpu: "unit1"
+  # RGSM (sample name) is extracted automatically from the BAM filename
+
+sge:
+  memory: "16G"
+  cores: 4
+  wall_time: "01:00:00"
+
+submission:
+  batch_size: 5
+  pause_between_batches: 10                        # seconds between batches

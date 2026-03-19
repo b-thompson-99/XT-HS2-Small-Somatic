@@ -1,0 +1,26 @@
+# Step 1a: AGeNT MBC Trimming — Configuration
+
+paths:
+  input_fastq_dir: "/path/to/raw/fastq"        # directory containing per-sample subdirectories
+  job_scripts_dir: "/path/to/job_scripts"       # directory to store SGE job scripts
+
+fastq:
+  r1_suffix: "_R1.fastq.gz"
+  r2_suffix: "_R2.fastq.gz"
+
+tools:
+  agent_path: "/path/to/AGeNT/agent/agent.sh"  # path to AGeNT agent.sh
+  java_home: "/path/to/jdk-17"                  # Java 17+ required by AGeNT
+
+agent:
+  adaptor: "IlluminaXT"                          # SureSelect XT HS2 adaptor chemistry
+  mbc_type: "xths2"                              # MBC extraction protocol
+
+sge:
+  memory: "30G"
+  cores: 6
+  wall_time: "02:00:00"
+
+submission:
+  batch_size: 5
+  pause_between_batches: 10                      # seconds between batches

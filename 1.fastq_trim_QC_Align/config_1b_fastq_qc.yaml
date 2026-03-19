@@ -1,0 +1,21 @@
+# Step 1b: FASTQ QC (fastp) — Configuration
+
+paths:
+  input_fastq_dir: "/path/to/fastq/data"        # directory containing per-sample subdirectories
+  job_scripts_dir: "/path/to/job_scripts"        # directory to store SGE job scripts
+
+fastq:
+  r1_suffix: "_trimmed_R1.fastq.gz"              # output suffix from step 1a
+  r2_suffix: "_trimmed_R2.fastq.gz"
+
+tools:
+  fastp_path: "/path/to/fastp"                   # path to fastp executable
+
+sge:
+  memory: "30G"
+  cores: 4
+  wall_time: "02:00:00"
+
+submission:
+  batch_size: 5
+  pause_between_batches: 10                       # seconds between batches

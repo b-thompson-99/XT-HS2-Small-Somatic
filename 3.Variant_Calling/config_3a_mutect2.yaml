@@ -1,0 +1,26 @@
+# Step 3a: GATK Mutect2 Variant Calling — Configuration
+#
+# Run separately for each stringency level using --input flag:
+#   python 3a_mutect2_calling.py --config config_3a_mutect2.yaml --input /path/to/creak_output/MS1/With_rg
+#   python 3a_mutect2_calling.py --config config_3a_mutect2.yaml --input /path/to/creak_output/MS2/With_rg
+#   python 3a_mutect2_calling.py --config config_3a_mutect2.yaml --input /path/to/creak_output/DUPLEX/With_rg
+
+paths:
+  # If using --input flag (recommended): these two fields are ignored — input and output paths are set automatically
+  # If not using --input flag: set input_bam_dir and output_vcf_dir manually before running:
+  input_bam_dir: "/path/to/creak_output/MS1/With_rg" # optional change
+  output_vcf_dir: "/path/to/creak_output/MS1/With_rg/Mutect_output" # optional change
+  job_scripts_dir: "/path/to/job_scripts"    # always required
+
+reference:
+  genome_fasta: "/path/to/genome.fasta"    # must be indexed with samtools faidx
+  target_bed: "/path/to/targets.bed"       # panel target regions BED file
+
+tools:
+  gatk_jar: "/path/to/gatk-package-4.6.1.0-local.jar"
+  java_home: "/path/to/jdk-17"             # Java 17+ required by GATK
+
+sge:
+  memory: "9G"
+  cores: 4
+  wall_time: "06:00:00"

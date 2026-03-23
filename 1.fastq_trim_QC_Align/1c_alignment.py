@@ -111,9 +111,6 @@ def create_qsub_script(sample_name, config, fastq1, fastq2, output_dir, script_d
 #$ -o {output_dir}/{sample}_align.stdout
 #$ -e {output_dir}/{sample}_align.stderr
 
-# Ensure tools are in PATH
-{env_activation}
-
 # Verify tools are available
 which bwa
 which samtools
@@ -164,7 +161,6 @@ fi
         cores=config['sge']['cores'],
         wall_time=config['sge']['wall_time'],
         output_dir=output_dir,
-        env_activation=config['environment']['activation_command'],
         bwa_path=config['tools']['bwa_path'],
         samtools_path=config['tools']['samtools_path'],
         reference=config['reference']['genome_fasta'],

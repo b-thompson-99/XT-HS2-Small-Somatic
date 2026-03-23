@@ -48,6 +48,14 @@ input_fastq_dir/
 
 Most tools can be installed via conda (`conda install -c bioconda <tool>`). AGeNT is Agilent software and must be obtained separately — see the AGeNT documentation.
 
+## Installation
+```bash
+git clone https://github.com/b-thompson-99/XT-HS2-Small-Somatic.git
+cd XT-HS2-Small-Somatic
+```
+
+Then configure the YAML files in each step directory with your system paths before running.
+
 ---
 
 ## Pipeline Overview

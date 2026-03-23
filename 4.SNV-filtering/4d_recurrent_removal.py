@@ -166,10 +166,10 @@ def run_mpileup_on_controls(control_bams, bed_file, reference, bcftools, output_
             f"{{bam_file}} -a FORMAT/AD,FORMAT/DP -d 1000000 -Ou | "
             f"{{bcftools}} call -m -Ov -o {{output_vcf}}"
         )
-        result = subprocess.run(cmd, shell=True, capture_output=True, text=True)
+        result = subprocess.run(cmd, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
         if result.returncode != 0:
-            print(f"  WARNING: mpileup failed for {{sample_name}}: {{result.stderr.strip()}}")
+            print(f"  WARNING: mpileup failed for {{sample_name}}: {{result.stderr.decode().strip()}}")
             continue
 
         mpileup_vcfs.append(output_vcf)

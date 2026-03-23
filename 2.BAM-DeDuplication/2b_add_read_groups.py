@@ -114,7 +114,7 @@ echo "  Input:  $(basename $INPUT_BAM)"
 echo "  Output: $(basename $OUTPUT_BAM)"
 
 # Add read groups with Picard
-{picard} AddOrReplaceReadGroups \\
+java -jar {picard} AddOrReplaceReadGroups \\
     I=$INPUT_BAM \\
     O=$OUTPUT_BAM \\
     RGID={rgid} \\

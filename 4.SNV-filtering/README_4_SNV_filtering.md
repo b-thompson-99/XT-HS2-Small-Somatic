@@ -100,6 +100,7 @@ Candidates/
 
 ## Notes
 
+- On HPC clusters, tools may not be in PATH on compute nodes. If you encounter "command not found" errors, pass full tool paths explicitly — e.g. for step 4d use --bcftools /Full_path/to/bcftools/executable.
 - Input VCFs can be `.vcf` or `.vcf.gz`; outputs are uncompressed `.vcf`
 - Run on all three stringency levels (MS1, MS2, Duplex)
 - Indels have a separate filtering workflow (see `5.Indel-filtering/`)

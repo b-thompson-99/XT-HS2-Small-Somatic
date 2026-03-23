@@ -4,7 +4,7 @@
 
 End-to-end pipeline for calling low-frequency somatic SNVs and indels from Agilent SureSelect XT HS2 sequencing data. Uses UMI consensus collapse (AGeNT CReaK) and GATK Mutect2 to detect variants at allele fractions as low as 0.1%.
 
-Developed for somatic mosaicism studies in post-mortem human brain tissue. Validated on fresh-frozen brain tissue samples from MSA and control cases.
+Developed for somatic mosaicism studies in post-mortem (fresh-frozen) human brain tissue. 
 
 ---
 
@@ -95,9 +95,7 @@ Final candidate SNVs
 
 ## Recommendations
 
-We strongly recommend a thorough manual IGV review of all output candidate variants before final analyses. In our validation, duplex-supported candidates were highly reliable; MS1 and MS2 callsets retained some false positives even post-filtering. Manual inspection is therefore highly recommended if using single-strand consensus data for variant calling.
-
-If duplex coverage is sufficient for your study, we would recommend utilising duplex data exclusively. Our duplex coverage was limited by a low library duplication rate, which resulted in small UMI family sizes and reduced the proportion of read pairs eligible for full duplex consensus collapse. For this type of UMI-based duplex sequencing, a high duplication rate is desirable as it reflects larger UMI families and greater potential for duplex agreement.
+We strongly recommend a thorough manual IGV review of all output candidate variants before final analyses. In our validation, duplex-supported candidates were highly reliable; MS1 and MS2 callsets retained some false positives even post-filtering. Manual inspection is therefore highly recommended if using single-strand consensus data for variant calling. If duplex coverage is sufficient for your study, we would recommend utilising duplex data exclusively. 
 
 ---
 
